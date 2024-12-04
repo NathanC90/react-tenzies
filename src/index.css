@@ -1,13 +1,79 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Karla', Arial, Helvetica, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #d0d0d0;
+}
+
+.App {
+  width: 450px;
+  height: 450px;
+  background-color: #0B2434;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container {
+  background-color: #eeeeee;
+  width: 400px;
+  height: 380px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  margin-top: 30px ;
+  margin-bottom: 20px;
+}
+
+.summary {
+  width: 240px;
+  margin: 5px 0px 10px;
+}
+
+.dice-container {
+  display: grid;
+  grid-template-columns: repeat(5, 2.4rem);
+  grid-template-rows: repeat(2, 1fr);
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.dice-button {
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 3px;
+  box-shadow: 0px 2px 2px 0px #bbb;
+}
+
+.roll-dice {
+  margin-top: 30px;
+  width: 7rem;
+  height: 2.5rem;
+  border: none;
+  background-color: #5035FF;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1.2rem;
 }
