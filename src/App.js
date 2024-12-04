@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Header from "./components/Header";
 import Die from "./components/Die";
 import "./index.css";
@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
 
 function App() {
-  const [dice, setDice] = useState(generateAllNewDice());
+  const [dice, setDice] = useState(() => generateAllNewDice());
   const gameWon =
     dice.every((die) => die.isHeld) &&
     dice.every((die) => die.value === dice[0].value);
@@ -21,6 +21,13 @@ function App() {
       />
     );
   });
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    if (gameWon) {
+      buttonRef.current.focus();
+    }
+  }, [gameWon]);
 
   function generateAllNewDice() {
     return new Array(10).fill(0).map(() => ({
@@ -48,15 +55,32 @@ function App() {
     );
   }
 
+  function newGame() {
+    if (gameWon) {
+      setDice(generateAllNewDice());
+    }
+  }
+
   return (
     <div className="App">
       <div className="main-container">
         {gameWon && <Confetti />}
+        <div aria-live="polite" className="sr-only">
+          {gameWon && (
+            <p>Congratulations! You won! Press "New Game" to start again.</p>
+          )}
+        </div>
         <Header />
         <div className="dice-container">{diceElements}</div>
-        <button className="roll-dice" onClick={rollDice}>
-          {gameWon ? "New Game" : "Roll Dice"}
-        </button>
+        {(gameWon && (
+          <button className="roll-dice" onClick={newGame} ref={buttonRef}>
+            New Game
+          </button>
+        )) || (
+          <button className="roll-dice" onClick={rollDice} ref={buttonRef}>
+            Roll Dice
+          </button>
+        )}
       </div>
     </div>
   );

@@ -82,6 +82,17 @@ button {
   font-size: 1.2rem;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+}
+
 @media screen and (max-width: 520px) {
   .App {
     width: 400px;
