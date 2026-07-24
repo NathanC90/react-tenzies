@@ -2,10 +2,12 @@
   "name": "react-tenzies",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nathanc90.github.io/react-tenzies",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "nanoid": "^3.3.8",
     "react": "^18.3.1",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.3.1",
